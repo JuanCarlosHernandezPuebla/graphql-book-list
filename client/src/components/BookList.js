@@ -11,7 +11,7 @@ const BookList = () => {
     <div>
       <ul className="book-list">
         {loading ? (
-          <div>Loading books...</div>
+          <div className="mx-auto w-max">Loading books...</div>
         ) : (
           data?.books?.map((book) => (
             <li
