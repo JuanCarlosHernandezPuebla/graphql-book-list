@@ -7,7 +7,7 @@ const BookDetails = ({ bookId }) => {
   });
 
   return (
-    <div id="book-details">
+    <div className="book-details">
       {data?.book ? (
         <div>
           <h2>{data.book.name}</h2>

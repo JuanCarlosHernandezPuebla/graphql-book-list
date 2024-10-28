@@ -20,9 +20,9 @@ const AddBook = () => {
   };
 
   return (
-    <form id="add-book" onSubmit={handleSubmitForm}>
-      <div className="field">
-        <label>Book name:</label>
+    <form onSubmit={handleSubmitForm}>
+      <div className="form-field">
+        <label className="form-label">Book name:</label>
         <input
           type="text"
           onChange={(event) =>
@@ -33,8 +33,8 @@ const AddBook = () => {
           }
         />
       </div>
-      <div className="field">
-        <label>Genre:</label>
+      <div className="form-field">
+        <label className="form-label">Genre:</label>
         <input
           type="text"
           onChange={(event) =>
@@ -45,8 +45,8 @@ const AddBook = () => {
           }
         />
       </div>
-      <div className="field">
-        <label>Author:</label>
+      <div className="form-field">
+        <label className="form-label">Author:</label>
         <select
           onChange={(event) =>
             setBookForm((prevBook) => ({
@@ -59,7 +59,7 @@ const AddBook = () => {
           {loading ? (
             <option disabled>Loading Authors...</option>
           ) : (
-            data.authors.map((author) => (
+            data?.authors?.map((author) => (
               <option key={author.id} value={author.id}>
                 {author.name}
               </option>

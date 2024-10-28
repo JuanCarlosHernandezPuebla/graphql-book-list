@@ -9,12 +9,16 @@ const BookList = () => {
 
   return (
     <div>
-      <ul id="book-list">
+      <ul className="book-list">
         {loading ? (
           <div>Loading books...</div>
         ) : (
-          data.books.map((book) => (
-            <li key={book.id} onClick={() => setSelected(book.id)}>
+          data?.books?.map((book) => (
+            <li
+              className="book-item"
+              key={book.id}
+              onClick={() => setSelected(book.id)}
+            >
               {book.name}
             </li>
           ))
