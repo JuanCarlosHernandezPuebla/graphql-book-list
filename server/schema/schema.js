@@ -9,7 +9,29 @@ const {
   GraphQLID,
   GraphQLInt,
   GraphQLList,
+  GraphQLScalarType,
 } = graphql;
+
+const NonEmptyString = new GraphQLScalarType({
+  name: "NonEmptyString",
+  description: "Non empty string",
+  serialize: (value) => {
+    if (typeof value !== "string" || value === "") {
+      throw new Error(
+        "GraphQL NonEmptyString Scalar serializer expected a `NonEmptyString` string"
+      );
+    }
+    return value;
+  },
+  parseValue: (value) => {
+    if (typeof value !== "string" || value === "") {
+      throw new Error(
+        "GraphQL NonEmptyString Scalar serializer expected a `NonEmptyString` string"
+      );
+    }
+    return value;
+  },
+});
 
 const BookType = new GraphQLObjectType({
   name: "Book",
@@ -94,8 +116,8 @@ const Mutation = new GraphQLObjectType({
     addBook: {
       type: BookType,
       args: {
-        name: { type: GraphQLString },
-        genre: { type: GraphQLString },
+        name: { type: NonEmptyString },
+        genre: { type: NonEmptyString },
         authorId: { type: GraphQLID },
       },
       resolve(parent, args) {
