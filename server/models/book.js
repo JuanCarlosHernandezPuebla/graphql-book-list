@@ -2,8 +2,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  name: String,
-  genre: String,
+  name: {
+    type: String,
+    trim: true,
+    required: [true, "Name is required"],
+  },
+  genre: {
+    type: String,
+    trim: true,
+    required: [true, "Genre is required"],
+  },
   authorId: String,
 });
 
