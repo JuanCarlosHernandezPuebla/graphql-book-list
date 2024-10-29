@@ -50,10 +50,15 @@ const AddBook = () => {
           </div>
         </div>
       )}
-      <form onSubmit={handleSubmitForm}>
-        <div className="form-field">
-          <label className="form-label">Book name:</label>
+      <form className="group" onSubmit={handleSubmitForm} noValidate>
+        <div className="form-field group">
+          <label className="form-label" htmlFor="book_name">
+            Book name:
+          </label>
           <input
+            className="peer"
+            required
+            name="book_name"
             type="text"
             onChange={(event) =>
               setBookForm((prevBook) => ({
@@ -62,10 +67,16 @@ const AddBook = () => {
               }))
             }
           />
+          <span class="error-text">Please provide a book name.</span>
         </div>
         <div className="form-field">
-          <label className="form-label">Genre:</label>
+          <label className="form-label" htmlFor="genre">
+            Genre:
+          </label>
           <input
+            className="peer"
+            required
+            name="genre"
             type="text"
             onChange={(event) =>
               setBookForm((prevBook) => ({
@@ -74,10 +85,16 @@ const AddBook = () => {
               }))
             }
           />
+          <span class="error-text">Please provide a genre.</span>
         </div>
         <div className="form-field">
-          <label className="form-label">Author:</label>
+          <label className="form-label" htmlFor="author">
+            Author:
+          </label>
           <select
+            className="peer"
+            name="author"
+            required
             onChange={(event) =>
               setBookForm((prevBook) => ({
                 ...prevBook,
@@ -85,7 +102,7 @@ const AddBook = () => {
               }))
             }
           >
-            <option>Select author</option>
+            <option value="">Select author</option>
             {loading ? (
               <option disabled>Loading Authors...</option>
             ) : (
@@ -96,8 +113,15 @@ const AddBook = () => {
               ))
             )}
           </select>
+          <span class="error-text">Please provide an author.</span>
         </div>
-        <button>+</button>
+        <button
+          type="submit"
+          className="group-invalid:opacity-60"
+          disabled={!Object.values(bookForm).every(Boolean)}
+        >
+          +
+        </button>
       </form>
     </div>
   );

@@ -19,19 +19,26 @@
     @apply inline-block m-3 p-2 rounded border border-sky-500 shadow cursor-pointer text-sky-500;
   }
   form {
-    @apply bg-white p-5 fixed left-0 bottom-0 w-[500px];
+    @apply bg-white p-20 fixed left-0 bottom-0 w-[500px];
   }
   form select, form input {
-    @apply m-1 p-2 box-border border-2 rounded border-gray-300;
+    @apply m-1 p-2 box-border border-2 rounded border-gray-300 outline-none focus:required:invalid:border-red-500;
   }
   .form-label {
-    @apply text-right p-2;
+    @apply text-left px-2;
   }
   .form-field {
-    @apply grid grid-cols-2 gap-3;
+    @apply grid grid-cols-1 gap-1 my-3;
   }
+  .form-field span {
+    @apply mx-1;
+  }
+
   form button {
     @apply text-white text-[2em] bg-sky-700 border-0 px-[10px] py-0 rounded-[50%] cursor-pointer absolute bottom-2;
+  }
+  .error-text {
+    @apply text-red-500 text-xs italic hidden peer-invalid:block
   }
   .book-details {
     @apply fixed top-0 right-0 w-2/5 h-full bg-sky-700 p-7 overflow-auto shadow box-border text-white;
