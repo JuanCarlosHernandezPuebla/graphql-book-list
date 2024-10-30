@@ -58,6 +58,7 @@ const AddBook = () => {
           <input
             className="peer"
             required
+            pattern="^(?!\s*$).+"
             name="book_name"
             type="text"
             onChange={(event) =>
@@ -76,6 +77,7 @@ const AddBook = () => {
           <input
             className="peer"
             required
+            pattern="^(?!\s*$).+"
             name="genre"
             type="text"
             onChange={(event) =>
@@ -118,7 +120,9 @@ const AddBook = () => {
         <button
           type="submit"
           className="group-invalid:opacity-60"
-          disabled={!Object.values(bookForm).every(Boolean)}
+          disabled={
+            !Object.values(bookForm).every((field) => field.trim() !== "")
+          }
         >
           +
         </button>
