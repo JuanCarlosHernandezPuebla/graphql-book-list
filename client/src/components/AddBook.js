@@ -56,6 +56,7 @@ const AddBook = () => {
             Book name:
           </label>
           <input
+            id="book_name"
             className="peer"
             required
             pattern="^(?!\s*$).+"
@@ -75,7 +76,9 @@ const AddBook = () => {
             Genre:
           </label>
           <input
+            id="genre"
             className="peer"
+            ame
             required
             pattern="^(?!\s*$).+"
             name="genre"
@@ -94,6 +97,7 @@ const AddBook = () => {
             Author:
           </label>
           <select
+            id="author"
             className="peer"
             name="author"
             required
